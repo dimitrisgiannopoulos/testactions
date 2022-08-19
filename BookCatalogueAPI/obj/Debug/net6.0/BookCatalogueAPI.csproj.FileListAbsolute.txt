@@ -1,0 +1,7 @@
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.csproj.AssemblyReference.cache
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.GeneratedMSBuildEditorConfig.editorconfig
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.AssemblyInfoInputs.cache
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.AssemblyInfo.cs
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.csproj.CoreCompileInputs.cache
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.MvcApplicationPartsAssemblyInfo.cs
+/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/Debug/net6.0/BookCatalogueAPI.MvcApplicationPartsAssemblyInfo.cache
