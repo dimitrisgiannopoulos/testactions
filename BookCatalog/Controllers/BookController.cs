@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace book.Controllers;
-{
+// namespace book.Controllers;
+// {
     [ApiController]
     [Route("api/[controller]")]
     public class BookController : ControllerBase
@@ -11,7 +11,7 @@ namespace book.Controllers;
             return "Ok";
         }
     }
-}
+// }
 
 // [ApiController]
 // [Route("[controller]")]
