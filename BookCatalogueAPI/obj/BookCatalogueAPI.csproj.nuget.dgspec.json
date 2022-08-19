@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookcatalogueAPI/BookcatalogueAPI.csproj": {}
+    "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj": {}
   },
   "projects": {
-    "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookcatalogueAPI/BookcatalogueAPI.csproj": {
+    "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookcatalogueAPI/BookcatalogueAPI.csproj",
-        "projectName": "BookcatalogueAPI",
-        "projectPath": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookcatalogueAPI/BookcatalogueAPI.csproj",
+        "projectUniqueName": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj",
+        "projectName": "BookCatalogueAPI",
+        "projectPath": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj",
         "packagesPath": "/home/dimit/.nuget/packages/",
-        "outputPath": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookcatalogueAPI/obj/",
+        "outputPath": "/home/dimit/A-simple-REST-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/dimit/.nuget/NuGet/NuGet.Config"
