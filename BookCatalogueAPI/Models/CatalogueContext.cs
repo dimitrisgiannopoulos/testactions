@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace BookCatalogueAPI.Models
 {
     public class CatalogueContext : DbContext
