@@ -21,5 +21,11 @@ namespace BookCatalogueAPI.Controllers
         {
             return Ok(_context.Books.ToArray());
         }
+
+        [HttpGet("{id}")]
+        public ActionResult GetBook(int id) {
+            var book = _context.Books.Find(id);
+            return Ok(book);
+        }
     }
 }
