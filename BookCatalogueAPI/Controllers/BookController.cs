@@ -25,6 +25,10 @@ namespace BookCatalogueAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult GetBook(int id) {
             var book = _context.Books.Find(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
             return Ok(book);
         }
     }
