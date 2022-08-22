@@ -17,9 +17,9 @@ namespace BookCatalogueAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Book> GetAllBooks()
+        public ActionResult GetAllBooks()
         {
-            return _context.Books.ToArray();
+            return Ok(_context.Books.ToArray());
         }
     }
 }
