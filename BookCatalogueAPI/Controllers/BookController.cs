@@ -1,5 +1,6 @@
 using BookCatalogueAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookCatalogueAPI.Controllers
 {
@@ -17,19 +18,19 @@ namespace BookCatalogueAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetAllBooks()
+        public async Task<ActionResult> GetAllBooks()
         {
-            return Ok(_context.Books.ToArray());
+            return Ok(await _context.Books.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
-        public ActionResult GetBook(int id) {
-            var book = _context.Books.Find(id);
+        public async Task<ActionResult> GetBook(int id) {
+            var book = _context.Books.FindAsync(id);
             if (book == null)
             {
                 return NotFound();
             }
-            return Ok(book);
+            return Ok(await book);
         }
     }
 }
