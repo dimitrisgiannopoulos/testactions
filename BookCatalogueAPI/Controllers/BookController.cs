@@ -84,5 +84,28 @@ namespace BookCatalogueAPI.Controllers
 
              return book;
         }
+
+        [HttpPost]
+        [Route("Delete")]
+        public async Task<ActionResult> DeleteMultiple([FromQuery]int[] ids)
+        {
+            var books = new List<Book>();
+            foreach (var id in ids)
+            {
+                var book = await _context.Books.FindAsync(id);
+
+                if (book == null)
+                {
+                    return NotFound();
+                }
+
+                books.Add(book);
+            }
+            
+             _context.Books.RemoveRange(books);
+             await _context.SaveChangesAsync();
+
+             return Ok(books);
+        }
     }
 }
