@@ -32,5 +32,57 @@ namespace BookCatalogueAPI.Controllers
             }
             return Ok(await book);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Book>> PostBook(Book book)
+        {
+            _context.Books.Add(book);
+            await _context.SaveChangesAsync();
+
+            return  CreatedAtAction("GetBook", new { id = book.Id }, book);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutBook( int id, Book book)
+        {
+            if (id != book.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(book).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Books.Any(p => p.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Book>> DeleteBook(int id)
+        {
+            var book = await _context.Books.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+             _context.Books.Remove(book);
+             await _context.SaveChangesAsync();
+
+             return book;
+        }
     }
 }

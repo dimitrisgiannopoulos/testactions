@@ -7,11 +7,11 @@ namespace BookCatalogueAPI.Models
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Thriller" },
-                new Category { Id = 2, Name = "Fiction" },
-                new Category { Id = 3, Name = "Romance" },
-                new Category { Id = 4, Name = "Satire" },
-                new Category { Id = 5, Name = "High Fantasy" });
+                new Category { Id = 1, Name = "thriller" },
+                new Category { Id = 2, Name = "fiction" },
+                new Category { Id = 3, Name = "romance" },
+                new Category { Id = 4, Name = "satire" },
+                new Category { Id = 5, Name = "high fantasy" });
 
             modelBuilder.Entity<Book>().HasData(
                 new Book { Id = 1, CategoryId = 1, Title= "To Kill a Mockingbird", Author = "Harper Lee" },
