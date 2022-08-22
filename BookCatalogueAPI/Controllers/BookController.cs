@@ -1,3 +1,4 @@
+using BookCatalogueAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookCatalogueAPI.Controllers
@@ -6,10 +7,19 @@ namespace BookCatalogueAPI.Controllers
     [Route("api/[controller]")]
     public class BookController : ControllerBase
     { 
-        [HttpGet]
-        public string GetBooks()
+        private readonly CatalogueContext _context;
+
+        public BookController(CatalogueContext context)
         {
-            return "OK";
+            _context = context;
+
+            _context.Database.EnsureCreated();
+        }
+
+        [HttpGet]
+        public IEnumerable<Book> GetAllBooks()
+        {
+            return _context.Books.ToArray();
         }
     }
 }

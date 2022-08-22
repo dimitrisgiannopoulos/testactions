@@ -4,8 +4,8 @@ namespace BookCatalogueAPI.Models
 {
     public class CatalogueContext : DbContext
     {
-        public CatalogueContext(DbContextOptions<CatalogueContext> options) : base(options)
-        {
+        public CatalogueContext(DbContextOptions<CatalogueContext> options) : base(options) {}
+        
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                 modelBuilder.Entity<Category>()
@@ -15,7 +15,6 @@ namespace BookCatalogueAPI.Models
 
                 modelBuilder.Seed();
             }
-        }
 
         public DbSet<Book> Books { get; set;}
         public DbSet<Category> Categories { get; set;}
