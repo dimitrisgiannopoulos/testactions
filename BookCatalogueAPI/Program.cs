@@ -1,6 +1,23 @@
 using BookCatalogueAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
+/////////////////////////////////////
+using MySql.Data.MySqlClient;
+
+string cs = @"server=localhost;userid=root;password=fa5dc2fc87;database=test";
+
+using var con = new MySqlConnection(cs);
+con.Open();
+
+MySqlCommand cmd = con.CreateCommand();
+cmd.CommandText = "INSERT INTO books (id, title) VALUES (2, 'test2');"; // This works.
+MySqlDataReader reader = cmd.ExecuteReader();
+
+Console.WriteLine($"MySQL version : {con.ServerVersion}");
+con.Close();
+
+/////////////////////////////
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
