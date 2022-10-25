@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 /////////////////////////////////////
 using MySql.Data.MySqlClient;
 
-string cs = @"server=localhost;userid=root;password=fa5dc2fc87;database=test";
+string cs = @"server=172.27.183.23;userid=root;password=password;database=test";
 
 using var con = new MySqlConnection(cs);
 con.Open();
@@ -35,11 +35,8 @@ builder.Services.AddDbContext<CatalogueContext>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

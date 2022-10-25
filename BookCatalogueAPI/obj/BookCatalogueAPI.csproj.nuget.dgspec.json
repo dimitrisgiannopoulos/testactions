@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dimitrisg\\Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline\\BookCatalogueAPI\\BookCatalogueAPI.csproj": {}
+    "/home/dimit/Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dimitrisg\\Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline\\BookCatalogueAPI\\BookCatalogueAPI.csproj": {
+    "/home/dimit/Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimitrisg\\Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline\\BookCatalogueAPI\\BookCatalogueAPI.csproj",
+        "projectUniqueName": "/home/dimit/Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj",
         "projectName": "BookCatalogueAPI",
-        "projectPath": "C:\\Users\\dimitrisg\\Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline\\BookCatalogueAPI\\BookCatalogueAPI.csproj",
-        "packagesPath": "C:\\Users\\dimitrisg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimitrisg\\Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline\\BookCatalogueAPI\\obj\\",
+        "projectPath": "/home/dimit/Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/BookCatalogueAPI.csproj",
+        "packagesPath": "/home/dimit/.nuget/packages/",
+        "outputPath": "/home/dimit/Simple-Book-Catalogue-API-with-a-Jenkins-Pipeline/BookCatalogueAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dimitrisg\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/dimit/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
