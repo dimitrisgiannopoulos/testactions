@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore;
 /////////////////////////////////////
 using MySql.Data.MySqlClient;
 
-string cs = @"server=172.27.183.23;userid=root;password=password;database=test";
+// string cs = @"server=" + Environment.GetEnvironmentVariable("my_ip") + ";userid=root;password=password;";
 
-using var con = new MySqlConnection(cs);
-con.Open();
+// using var con = new MySqlConnection(cs);
+// con.Open();
 
-MySqlCommand cmd = con.CreateCommand();
-cmd.CommandText = "INSERT INTO books (id, title) VALUES (2, 'test2');"; // This works.
-MySqlDataReader reader = cmd.ExecuteReader();
+// MySqlCommand cmd = con.CreateCommand();
+// cmd.CommandText = "INSERT INTO books (id, title) VALUES (2, 'test2');"; // This works.
+// MySqlDataReader reader = cmd.ExecuteReader();
 
-Console.WriteLine($"MySQL version : {con.ServerVersion}");
-con.Close();
+// Console.WriteLine($"MySQL version : {con.ServerVersion}");
+// con.Close();
 
 /////////////////////////////
 
