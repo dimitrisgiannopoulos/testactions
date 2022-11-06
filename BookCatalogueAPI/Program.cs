@@ -1,22 +1,4 @@
-using BookCatalogueAPI.Models;
-using Microsoft.EntityFrameworkCore;
-
-/////////////////////////////////////
-using MySql.Data.MySqlClient;
-
-// string cs = @"server=" + Environment.GetEnvironmentVariable("my_ip") + ";userid=root;password=password;";
-
-// using var con = new MySqlConnection(cs);
-// con.Open();
-
-// MySqlCommand cmd = con.CreateCommand();
-// cmd.CommandText = "INSERT INTO books (id, title) VALUES (2, 'test2');"; // This works.
-// MySqlDataReader reader = cmd.ExecuteReader();
-
-// Console.WriteLine($"MySQL version : {con.ServerVersion}");
-// con.Close();
-
-/////////////////////////////
+using BookCatalogueAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CatalogueContext>(options =>
-{
-    options.UseInMemoryDatabase("BookCatalogue");
-});
+SeedDatabase.Seed();
 
 var app = builder.Build();
 
@@ -45,3 +24,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Deletes the database 
+using (var db = new BookCatalogueContext())
+{
+    db.Database.EnsureDeleted();
+}

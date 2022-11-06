@@ -1,7 +1,6 @@
 version: "3.9"
 services:
   mysql-db:
-#    build: .
     image: "mysql/mysql-server"
     environment:
     - MYSQL_ROOT_HOST=%
@@ -12,9 +11,17 @@ services:
     image: "phpmyadmin"
     ports:
       - "8080:80"
-    links: 
-      - mysql-db:db
+    environment:
+      PMA_HOST : mysql-db
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
+    depends_on:
+      - mysql-db
+    links:
+      - mysql-db
   bookcatalogueapi:
     build: ../BookCatalogueAPI/
+    links:
+      - mysql-db:mysql
     ports:
       - "8081:80"
