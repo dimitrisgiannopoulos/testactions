@@ -20,7 +20,9 @@ services:
     links:
       - mysql-db
   bookcatalogueapi:
-    build: ../BookCatalogueAPI/
+    build: 
+      context: ..
+      dockerfile: ./docker/Dockerfile
     links:
       - mysql-db:mysql
     ports:
