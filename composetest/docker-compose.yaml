@@ -1,11 +1,11 @@
 version: "3.9"
 services:
   mysql-db:
-#    build: .
     image: "mysql/mysql-server"
     environment:
     - MYSQL_ROOT_HOST=%
     - MYSQL_ROOT_PASSWORD=password
+    network_mode: host
     ports:
       - "3306:3306"
   frontend:
@@ -16,5 +16,6 @@ services:
       - mysql-db:db
   bookcatalogueapi:
     build: ../BookCatalogueAPI/
+    network_mode: host
     ports:
       - "8081:80"
