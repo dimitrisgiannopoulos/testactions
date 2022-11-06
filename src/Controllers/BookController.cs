@@ -18,6 +18,12 @@ namespace BookCatalogueAPI.Controllers
             _context.Database.EnsureCreated();
         }
 
+        [HttpGet("/health")]
+        public IActionResult GetHealth()
+        {
+            return Ok("OK");
+        }
+
         [HttpGet]
         public IActionResult GetAllBooks()
         {
