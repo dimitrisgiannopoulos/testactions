@@ -5,17 +5,23 @@ services:
     environment:
     - MYSQL_ROOT_HOST=%
     - MYSQL_ROOT_PASSWORD=password
-    network_mode: host
     ports:
       - "3306:3306"
   frontend:
     image: "phpmyadmin"
     ports:
       - "8080:80"
-    links: 
-      - mysql-db:db
+    environment:
+      PMA_HOST : mysql-db
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
+    depends_on:
+      - mysql-db
+    links:
+      - mysql-db
   bookcatalogueapi:
     build: ../BookCatalogueAPI/
-    network_mode: host
+    links:
+      - mysql-db:mysql
     ports:
       - "8081:80"
