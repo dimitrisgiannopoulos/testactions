@@ -5,7 +5,7 @@
 * [Deploying the application](#deploying)
   * [Deployment strategy 1: docker-compose](#strategy1)
   * [Deployment strategy 2: Kubernetes deployment with manifests](#strategy2)
-  * [Deployment strategy 1: Kubernetes deployment with Helm](#strategy3)
+  * [Deployment strategy 3: Kubernetes deployment with Helm](#strategy3)
 
 <a name="overview"></a>
 ## Overview
