@@ -1,0 +1,71 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: my-app
+  labels:
+    app: mysql
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    name: http
+  selector:
+    app: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: my-app
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql/mysql-server
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: mysql-pass
+          #     key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_USER
+          value: root
+        - name: MYSQL_ROOT_HOST
+          value: '%'
+        ports:
+        - containerPort: 3306
+        livenessProbe:
+          exec:
+            command: ["mysqladmin", "-uroot", "-p$MYSQL_ROOT_PASSWORD", "ping"]
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          exec:
+            # Check we can execute queries over TCP (skip-networking is off).
+            command:
+            - /bin/sh
+            - -ec
+            - set -ex
+            - >-
+              mysql -h127.0.0.1 -uroot -p$MYSQL_ROOT_PASSWORD -e'SELECT 1'
+          initialDelaySeconds: 5
+          periodSeconds: 2
+          timeoutSeconds: 1
