@@ -1,17 +1,12 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: my-app
----
-apiVersion: v1
 kind: Service
 metadata:
   name: phpmyadmin
-  namespace: my-app
+  namespace: {{ .Values.common.namespace }}
   labels:
     app: phpmyadmin
 spec:
-  type: NodePort
+  type: {{ .Values.phpmyadmin.Service.Type }}
   ports:
   - port: 80
     protocol: TCP
@@ -23,7 +18,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: phpmyadmin
-  namespace: my-app
+  namespace: {{ .Values.common.namespace }}
   labels:
     app: phpmyadmin
 spec:
@@ -37,15 +32,15 @@ spec:
     spec:
       containers:
       - name: phpmyadmin
-        image: phpmyadmin
+        image: "{{ .Values.phpmyadmin.image.repository }}:{{ .Values.phpmyadmin.image.tag }}"
+        imagePullPolicy: {{ .Values.phpmyadmin.image.imagePullPolicy }}
         ports:
         - containerPort: 80
         env:
         - name: MYSQL_ROOT_PASSWORD
-          # value: password
           valueFrom:
             secretKeyRef:
               name: mysql-pass
               key: MYSQL_ROOT_PASSWORD
         - name: PMA_HOST
-          value: mysql
+          value: {{ .Values.phpmyadmin.environment.PMA_HOST }}

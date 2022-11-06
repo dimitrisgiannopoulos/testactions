@@ -1,0 +1,2 @@
+1. Get the application details by running the command:
+  kubectl --namespace {{ .Release.Namespace }} get all

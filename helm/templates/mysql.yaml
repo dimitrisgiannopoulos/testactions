@@ -1,16 +1,12 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: my-app
----
-apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  namespace: my-app
+  namespace: {{ .Values.common.namespace }}
   labels:
     app: mysql
 spec:
+  type: {{ .Values.mysql.Service.Type }}
   ports:
   - port: 3306
     protocol: TCP
@@ -22,7 +18,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: my-app
+  namespace: {{ .Values.common.namespace }}
   labels:
     app: mysql
 spec:
@@ -36,16 +32,16 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql/mysql-server
+        image: "{{ .Values.mysql.image.repository }}:{{.Values.mysql.image.tag }}"
+        imagePullPolicy: {{ .Values.mysql.image.imagePullPolicy }} 
         env:
         - name: MYSQL_ROOT_PASSWORD
-          # value: password
           valueFrom:
             secretKeyRef:
               name: mysql-pass
               key: MYSQL_ROOT_PASSWORD
         - name: MYSQL_USER
-          value: root
+          value: {{ .Values.mysql.environment.MYSQL_USER }}
         - name: MYSQL_ROOT_HOST
           value: '%'
         ports:
