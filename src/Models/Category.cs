@@ -8,6 +8,6 @@ namespace BookCatalogueAPI.Models
 
         [Required]
         public string Name { get; set; } = string.Empty;
-        public virtual List<Book> Books { get; set; }
+        public virtual List<Book>? Books { get; set; }
     }
 }

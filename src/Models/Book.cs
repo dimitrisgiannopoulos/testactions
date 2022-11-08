@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace BookCatalogueAPI.Models
 {
@@ -15,15 +13,13 @@ namespace BookCatalogueAPI.Models
         public string Author { get; set; } = string.Empty;
 
         [Required]
-        public int CategoryId { get; set; }
-        [JsonIgnore]
-        public virtual Category? Category { get; set; }
+        public string Category { get; set; } = string.Empty;
 
-        public Book(string title, string author, int categoryid)
+        public Book(string title, string author, string category)
         {
             Title = title;
             Author = author;
-            CategoryId = categoryid;
+            Category = category;
         }
 
         public Book () {}
@@ -35,7 +31,7 @@ namespace BookCatalogueAPI.Models
                 "ID " + Id.ToString() + Environment.NewLine +
                 "   Title       : " + Title + Environment.NewLine +
                 "   Author      : " + Author + Environment.NewLine +
-                "   CategoryId  : " + CategoryId.ToString() + Environment.NewLine;
+                "   Category    : " + Category + Environment.NewLine;
         }
     }
 }
