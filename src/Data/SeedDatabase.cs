@@ -47,6 +47,7 @@ namespace BookCatalogueAPI.Data
 
                 db.Books.AddRange(
                     new Book { Title = "To Kill a Mockingbird", Author = "Harper Lee", Category = "thriller" },
+                    new Book { Title = "To Kill a Mockingbird 2", Author = "Harper Lee", Category = "thriller" },
                     new Book { Title = "The Catcher in the Rye", Author = "J. D. Salinger", Category = "fiction" },
                     new Book { Title = "The Great Gatsby", Author = "F. Scott Fitzgerald" , Category = "fiction"},
                     new Book { Title = "Wuthering Heights", Author = "Emily Brontë", Category = "romance" },
