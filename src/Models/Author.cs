@@ -8,6 +8,23 @@ namespace BookCatalogueAPI.Models
 
         [Required]
         public string Name { get; set; } = string.Empty;
+        
+        [Required]
+        public string Surname { get; set; } = string.Empty;
+
+        [Required]
         public virtual List<Book>? Books { get; set; }
+
+        public DateOnly dateOfBirth { get; set; }
+
+        public DateOnly dateOfDeath { get; set; }
+
+        public string countryOfBirth { get; set; } = string.Empty;
+
+        public Author(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+        }
     }
 }
