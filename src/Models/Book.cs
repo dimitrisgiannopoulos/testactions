@@ -9,29 +9,23 @@ namespace BookCatalogueAPI.Models
         [Required]
         public string Title { get; set; } = string.Empty;
 
+        public DateOnly dateOfFirstPublication { get; set; }
+
         [Required]
-        public string Author { get; set; } = string.Empty;
+        public List<Author>? Authors { get; set; }
 
         [Required]
         public string Category { get; set; } = string.Empty;
 
-        public Book(string title, string author, string category)
+        public string originalLanguage { get; set; } = string.Empty;
+
+        public Book(string title, List<Author> authors, string category)
         {
             Title = title;
-            Author = author;
+            Authors = authors;
             Category = category;
         }
 
-        public Book () {}
-
-        public override string ToString()
-        {
-            return
-                "---" + Environment.NewLine +
-                "ID " + Id.ToString() + Environment.NewLine +
-                "   Title       : " + Title + Environment.NewLine +
-                "   Author      : " + Author + Environment.NewLine +
-                "   Category    : " + Category + Environment.NewLine;
-        }
+        public Book() { }
     }
 }
