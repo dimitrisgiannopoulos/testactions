@@ -2,7 +2,7 @@ name: Build and Publish
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
 
 jobs:
@@ -30,6 +30,5 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           tags: |
-            dimitrisgian/bookcatalogueapi
-          # build on feature branches, push only on main branch
+            dimitrisgian/bookcatalogueapi:${{ github.ref == 'refs/heads/main' && 'latest' || github.ref == 'refs/heads/develop' && 'nightly' }}
           push: ${{ github.ref == 'refs/heads/main' }}
