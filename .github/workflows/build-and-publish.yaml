@@ -31,4 +31,4 @@ jobs:
           file: ./docker/Dockerfile
           tags: |
             dimitrisgian/bookcatalogueapi:${{ github.ref == 'refs/heads/main' && 'latest' || github.ref == 'refs/heads/develop' && 'nightly' }}
-          push: ${{ github.ref == 'refs/heads/main' }}
+          # push: ${{ github.ref == 'refs/heads/main' }}
